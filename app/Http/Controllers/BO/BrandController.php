@@ -6,7 +6,7 @@ use App\Http\Controllers\iController\iBrandsManage;
 use App\Repositories\BrandsRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Validator;
 class BrandController extends _AppBOController implements iBrandsManage
 {
     public function __construct()
@@ -40,7 +40,24 @@ class BrandController extends _AppBOController implements iBrandsManage
 
     public function addBrand(Request $request)
     {
-        // TODO: Implement addBrand() method.
+        if ($request->isMethod('post')){
+            $validator=Validator::make($request->all(),[
+               'name'=>'required|string|unique:brands',
+                'description'=>'required|string',
+                'country'=>'required|string'
+            ]);
+            if ($validator->fails()){
+                $request->flash();
+                return view('BO.manage.brand.addNewBrand')->withErrors($validator);
+            }
+
+            $rs = $this->repo->insertBrand($request->all());
+
+            return redirect(route('BrandManage'))->with('status','Brand '.$request->input('name').' added !');
+
+        }else{
+            return view('BO.manage.brand.addNewBrand');
+        }
     }
 
     public function updateBrand(Request $request, $lang, $id_brand)

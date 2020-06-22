@@ -25,6 +25,4 @@ Route::any('/category/update/{id_cat}','BO\CategoryController@updateCategory')->
 Route::post('/category/delete','BO\CategoryController@deleteCategory')->name('CategoryDelete');
 
 Route::get('/brand/','BO\BrandController@getListBrands')->name('BrandManage');
-Route::any('/brand/add',function(){
-   return view('BO.manage.brand.addNewBrand');
-})->name('BrandAdd');
+Route::any('/brand/add','BO\BrandController@addBrand')->name('BrandAdd');
