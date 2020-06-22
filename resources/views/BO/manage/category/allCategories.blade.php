@@ -37,7 +37,7 @@
         <div class="card-header d-flex">
         <h5 class="card-header-title">{{__('menu-categories-manage')}}</h5>
             <div class="toolbar ml-auto">
-                <a href="{{ routerBo('CategoryAdd') }}" class="btn btn-success active"><i class="fas fa-plus"></i></a>
+                <a href="{{ route('CategoryAdd') }}" class="btn btn-success active"><i class="fas fa-plus"></i></a>
             </div>
         </div>
         <div class="card-body">
@@ -86,7 +86,7 @@
   [
       'title' => __('category-modal-title'),
       'content' => __('category-modal-content'),
-      'urlDelete' => routerBo('CategoryDelete')
+      'urlDelete' => route('CategoryDelete')
   ]
 )
 @section('endJs')

@@ -30,4 +30,18 @@ class BrandsRepo
 
         return $resultInsert;
     }
+
+    public function getBrandById($id_brand){
+        $brand=Brand::where('id_brand','=',$id_brand)->first();
+        return $brand;
+    }
+
+    public function deleteBrand($id_brand){
+        $resultDelete = false;
+        $brand = Brand::where('id_brand',$id_brand)->delete();
+        if ($brand == 1){
+            $resultDelete=true;
+        }
+        return $resultDelete;
+    }
 }

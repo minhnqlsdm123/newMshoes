@@ -67,6 +67,14 @@ class BrandController extends _AppBOController implements iBrandsManage
 
     public function deleteBrand(Request $request)
     {
-        // TODO: Implement deleteBrand() method.
+        $requestData = $request->all();
+//        dd($requestData);
+        $resultDelete = false;
+        if ($request->isMethod('post')) {
+            $brandId = $requestData['code'];
+            $resultDelete = $this->repo->deleteBrand($brandId);
+            $message = __('message-success-delete');
+            return response()->json(array('resultDelete'=>$resultDelete,'message'=>$message));
+        }
     }
 }

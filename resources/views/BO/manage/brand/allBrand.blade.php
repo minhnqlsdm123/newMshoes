@@ -71,7 +71,6 @@
                                     </div>
                                 </td>
                             </tr>
-
                             @endforeach
                         </tbody>
                     </table>
@@ -79,5 +78,23 @@
             </div>
         </div>
     </div>
+@endsection
+@include('BO._components.modal.confirmDelete',
+  [
+      'title' => __('brand-modal-title'),
+      'content' => __('brand-modal-content'),
+      'urlDelete' => route('BrandDelete')
+  ]
+)
+@section('endJs')
+
+    <script type="text/javascript">
+        function focusData(code){
+            window.actionFocusData = code;
+        }
+        function resetFocusData(){
+
+        }
+    </script>
 @endsection
 
