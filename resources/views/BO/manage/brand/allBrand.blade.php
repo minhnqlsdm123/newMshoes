@@ -62,7 +62,7 @@
                                 <td>{{$brand->created_at}}</td>
                                 <td>
                                     <div class="btn-group ml-auto">
-                                        <a class="btn btn-sm btn-outline-light" data-content="{{ $brand->id_brand }}" href="">
+                                        <a class="btn btn-sm btn-outline-light" data-content="{{ $brand->id_brand }}" href="{{route('updateBrand',['id_brand' => $brand['id_brand'] ])}}">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <a class="bg-danger-light btn btn-sm btn-outline-light" data-content="en" data-toggle="modal" data-target="#confirmModal" onclick="focusData({{ $brand->id_brand }})">

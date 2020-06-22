@@ -12,7 +12,7 @@ interface iBrandsManage
 
     public function addBrand(Request $request);
 
-    public function updateBrand(Request $request,$lang, $id_brand);
+    public function updateBrand(Request $request, $id_brand);
 
     public function deleteBrand(Request $request);
 }

@@ -60,9 +60,28 @@ class BrandController extends _AppBOController implements iBrandsManage
         }
     }
 
-    public function updateBrand(Request $request, $lang, $id_brand)
+    public function updateBrand(Request $request,$id_brand)
     {
-        // TODO: Implement updateBrand() method.
+        $brand=$this->repo->getBrandById($id_brand);
+//        dd($brand);
+
+        if ($request->isMethod('post')){
+            $validator=Validator::make($request->all(),[
+                'name'=>'required|string',
+                'description'=>'required|string',
+                'country'=>'required|string'
+            ]);
+            if ($validator->fails()){
+                $request->flash();
+                return view('BO.manage.updateBrand')->withErrors($validator);
+
+            }
+            $rs=$this->repo->updateBrand($request->all(),$brand['id_brand']);
+
+            return redirect(route('BrandManage'))->with('status', 'Brand ' . $request->input('name') . ' edited!');
+        }else{
+            return view('BO.manage.brand.updateBrand',['brand'=>$brand]);
+        }
     }
 
     public function deleteBrand(Request $request)
