@@ -44,6 +44,8 @@
   "menu-brands-add": "Add Brand",
   "menu-brands-manage": "All Brands",
   "breadcrumb-brands": "Brands Management",
+    "brand-modal-title": "Delete Brand",
+    "brand-modal-content": "Are you want to delete this Brand ?",
 
   "menu-language": "Language",
   "breadcrumb-language": "Languages Management",
