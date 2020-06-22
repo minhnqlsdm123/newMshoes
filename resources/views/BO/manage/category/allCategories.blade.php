@@ -33,7 +33,7 @@
     </div>
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-    <div class="card">
+        <div class="card">
         <div class="card-header d-flex">
         <h5 class="card-header-title">{{__('menu-categories-manage')}}</h5>
             <div class="toolbar ml-auto">
