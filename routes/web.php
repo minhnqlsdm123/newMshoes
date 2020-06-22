@@ -26,4 +26,5 @@ Route::post('/category/delete','BO\CategoryController@deleteCategory')->name('Ca
 
 Route::get('/brand/','BO\BrandController@getListBrands')->name('BrandManage');
 Route::any('/brand/add','BO\BrandController@addBrand')->name('BrandAdd');
+Route::any('/brand/update/{id_brand}','BO\BrandController@updateBrand')->name('updateBrand');
 Route::post('/brand/delete','BO\BrandController@deleteBrand')->name('BrandDelete');

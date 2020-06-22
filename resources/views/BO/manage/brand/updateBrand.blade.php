@@ -4,22 +4,22 @@
 
 @section('description','Mshoes')
 
-@section('keywords','Mshoes')
+@section('keyword','Mshoes')
 
 @section('breadcrumb')
-    <li class="breadcrumb-item active" aria-current="page">{{__('breadcrumb-brands')}}</li>
+    <li class="breadcrumb-item active" aria-current="page">{{__('breadcrumb-brand')}}</li>
 @endsection
 
 @section('wrapper-content')
-    <div class="card">
+    <div card>
         <h5 class="card-header">{{__('brand-add-new')}}</h5>
         <div class="card-body">
-            <form method="POST" action="{{route('BrandAdd')}}">
+            <form method="POST" action="{{route('updateBrand',['id_brand' => $brand->id_brand ])}}">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">{{__('titleLabel.name')}}</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name"
-                           value="{{ old('name') }}">
+                           value="{{ $brand->name }}">
                     @error('name')
                     <div class="invalid-feedback">
                         {{$message}}
@@ -29,7 +29,7 @@
                 <div class="form-group">
                     <label for="description">{{__('titleLabel.description')}}</label>
                     <input type="text" class="form-control @error('description') is-invalid @enderror" id="description" name="description"
-                           value="{{ old('description') }}">
+                           value="{{$brand->description}}">
                     @error('description')
                     <div class="invalid-feedback">
                         {{$message}}
@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="county">{{__('titleLabel.country')}}</label>
                     <input type="text" class="form-control @error('country') is-invalid @enderror" id="country" name="country"
-                           value="{{ old('country') }}">
+                           value="{{ $brand->country}}">
                     @error('country')
                     <div class="invalid-feedback">
                         {{$message}}
@@ -53,6 +53,4 @@
             </form>
         </div>
     </div>
-
-
 @endsection
