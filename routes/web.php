@@ -17,7 +17,10 @@ Route::get('/', function () {
 
 //Route::get('/category',function () {
 //   return view('BO.manage.category.allCategories');
+
 //});
+
+Route::get('/language/','BO\LanguageController@getListLanguages')->name('LanguageManage');
 
 Route::get('/category/','BO\CategoryController@getListCategories')->name('CategoryManage');
 Route::any('/category/add','BO\CategoryController@addCategory')->name('CategoryAdd');
