@@ -39,7 +39,7 @@
                 <div class="card-header d-flex">
                     <h5 class="card-header-title">{{__('table-language')}}</h5>
                     <div class="toolbar ml-auto">
-                        <a href="" class="btn btn-success active"><i class="fas fa-plus"></i></a>
+                        <a href="{{route('LanguageAdd')}}" class="btn btn-success active"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
                 <div class="card-body">
