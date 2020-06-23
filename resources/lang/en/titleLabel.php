@@ -13,12 +13,12 @@ return [
     "is_active" => "Status",
 
     "id_cat"=>"ID",
+    "code"=>"Code",
     "name"=>"Name",
     "slug"=>"Slug",
 
 
     "id_brand"=>"ID",
-    "name"=>"Name",
     "description"=>"Description",
     "country"=>"Country"
 ];
