@@ -23,6 +23,7 @@
 </div>
 
 <script type="text/javascript">
+
     function confirmDelete() {
         var dataDelete = {
             '_token': $('meta[name=_token]').attr('content'),

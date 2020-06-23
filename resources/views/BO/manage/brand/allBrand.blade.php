@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             @if (session('status'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" >
                     {{ session('status') }}
                     <a href="#" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">×</span>
@@ -95,6 +95,11 @@
         function resetFocusData(){
 
         }
+        // $("document").ready(function(){
+        //     setTimeout(()=>{
+        //         $('.alert').hide('slow')
+        //     },3000)
+        // })
     </script>
 @endsection
 
