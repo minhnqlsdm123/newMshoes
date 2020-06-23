@@ -20,5 +20,7 @@ return [
 
     "id_brand"=>"ID",
     "description"=>"Description",
-    "country"=>"Country"
+    "country"=>"Country",
+    "active"=>"Active",
+    "disable"=>"Disable"
 ];

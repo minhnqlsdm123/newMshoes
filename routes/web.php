@@ -21,6 +21,7 @@ Route::get('/', function () {
 //});
 
 Route::get('/language/','BO\LanguageController@getListLanguages')->name('LanguageManage');
+Route::any('/language/add','BO\LanguageController@addLanguage')->name('LanguageAdd');
 
 Route::get('/category/','BO\CategoryController@getListCategories')->name('CategoryManage');
 Route::any('/category/add','BO\CategoryController@addCategory')->name('CategoryAdd');

@@ -18,4 +18,18 @@ class LanguagesRepo
         return $list;
     }
 
+    public function insertLanguage($data=[] ){
+        $resultInsert=false;
+        if (count($data)>0){
+            $language=new Language();
+            $language->code=$data['code'];
+            $language->name=$data['name'];
+            $language->is_active=$data['isActive'];
+            $language->save();
+            $resultInsert=true;
+        }
+        return $resultInsert;
+
+    }
+
 }
