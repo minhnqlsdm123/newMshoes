@@ -67,9 +67,12 @@
                                         <a class="btn btn-sm btn-outline-light" data-content="{{ $language->code }}" href="">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <a class="bg-danger-light btn btn-sm btn-outline-light" data-content="en" data-toggle="modal" data-target="#confirmModal" onclick="focusData({{ $language->code  }})">
-                                            <i class="far fa-trash-alt"></i>
-                                        </a>
+                                        @if($language->code != 'en')
+                                            <a class="bg-danger-light btn btn-sm btn-outline-light" data-content="{{ $language->code }}" data-toggle="modal" data-target="#confirmModal" onclick="focusData(this)" >
+                                                <i class="far fa-trash-alt"></i>
+                                            </a>
+                                        @endif
+
                                     </div>
                                 </td>
                             </tr>
@@ -80,4 +83,23 @@
             </div>
         </div>
     </div>
+@endsection
+
+@include('BO._components.modal.confirmDelete',[
+     'title' => __('language-modal-title'),
+      'content' => __('language-modal-content'),
+      'urlDelete' => route('LanguageDelete')
+])
+@section('endJs')
+
+    <script type="text/javascript">
+        function focusData(obj){
+            window.actionFocusData = $(obj).attr('data-content');
+        }
+        function resetFocusData(){
+
+        }
+
+
+    </script>
 @endsection

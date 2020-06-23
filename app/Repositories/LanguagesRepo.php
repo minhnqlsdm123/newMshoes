@@ -32,4 +32,13 @@ class LanguagesRepo
 
     }
 
+    public function deleteLanguage($code){
+        $resultDelete=true;
+        $language=Language::where('code',$code)->delete();
+//        if ($language==1){
+//            $resultDelete=true;
+//        }
+        return $resultDelete;
+    }
+
 }

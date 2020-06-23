@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\BO;
 
 use App\Http\Controllers\iController\iLanguageManage;
+use App\Model\Language;
 use App\Repositories\LanguagesRepo;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -60,6 +61,17 @@ class LanguageController extends _AppBOController implements iLanguageManage
 
     public function deleteLanguage(Request $request)
     {
-        // TODO: Implement deleteLanguage() method.
+        $resultDelete = false;
+        $code = $request->code;
+        $langItem = Language::where('code', $code)->first();
+        if ($langItem) {
+            $langItem->is_active = 0;
+            $langItem->save();
+            $langItem->delete();
+            $resultDelete = true;
+            $message = __('message-success-delete');
+            return response()->json(array('resultDelete'=>$resultDelete,'message'=>$message));
+        }
+
     }
 }
