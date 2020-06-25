@@ -54,9 +54,30 @@ class LanguageController extends _AppBOController implements iLanguageManage
         }
     }
 
-    public function updateLanguage(Request $request, $code)
+    public function updateLanguage(Request $request,$code)
     {
-        // TODO: Implement updateLanguage() method.
+        $language = Language::where('code', $code)->first();
+//        dd($language);
+        if ($request->isMethod('post')){
+            $validator=Validator::make($request->all(),[
+                'name' => 'required|string',
+                'code' => 'required|string'
+            ]);
+            if ($validator->fails()){
+                $request->flash();
+                return view('BO.manage.language.updateLanguage')->withErrors($validator);
+            }
+
+            $rs = $this->repo->updateLanguage($request->all(),$code);
+
+            return redirect(route('LanguageManage'))->with('status','Language '.$request->input('name'). ' edited!');
+        }
+        if(!empty($language)){
+            return view('BO.manage.language.updateLanguage',compact('language'));
+        }else{
+            return redirect(route('LanguageManage'))->with('status', 'Language not found!');
+        }
+
     }
 
     public function deleteLanguage(Request $request)
