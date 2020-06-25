@@ -32,6 +32,20 @@ class LanguagesRepo
 
     }
 
+    public function updateLanguage($data=[],$code){
+        $resultUpdate=false;
+        $objLang = Language::where('code',$code)->first();
+        if(count($data)>0){
+            $objLang->code = $data['code'];
+            $objLang->name = $data['name'];
+            $objLang->is_active = $data['isActive'];
+            $objLang->save();
+            $resultUpdate=true;
+        }
+        return $resultUpdate;
+    }
+
+
     public function deleteLanguage($code){
         $resultDelete=true;
         $language=Language::where('code',$code)->delete();

@@ -64,7 +64,7 @@
                                 <td>{{statusToString($language->is_active) }}</td>
                                 <td>
                                     <div class="btn-group ml-auto">
-                                        <a class="btn btn-sm btn-outline-light" data-content="{{ $language->code }}" href="">
+                                        <a class="btn btn-sm btn-outline-light" data-content="{{ $language->code }}" href="{{route('LanguageUpdate',['code'=>$language->code])}}">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         @if($language->code != 'en')

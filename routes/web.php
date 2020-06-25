@@ -22,6 +22,7 @@ Route::get('/', function () {
 
 Route::get('/language/','BO\LanguageController@getListLanguages')->name('LanguageManage');
 Route::any('/language/add','BO\LanguageController@addLanguage')->name('LanguageAdd');
+Route::any('/language/update/{code}','BO\LanguageController@updateLanguage')->name('LanguageUpdate');
 Route::post('/language/delete','BO\LanguageController@deleteLanguage')->name('LanguageDelete');
 
 Route::get('/category/','BO\CategoryController@getListCategories')->name('CategoryManage');
